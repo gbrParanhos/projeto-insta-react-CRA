@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import Body from "./Body";
 
-export default function App() {
+const App = () => {
   return (
     <>
       <NavBar />
@@ -9,3 +9,5 @@ export default function App() {
     </>
   )
 }
+
+export default App

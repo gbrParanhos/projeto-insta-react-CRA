@@ -1,9 +1,9 @@
 import Suggestion from "./Suggestion";
 
-export default function Suggestions() {
+const Suggestions = () => {
   return(
-    <div class="sugestoes">
-      <div class="titulo">
+    <div className="sugestoes">
+      <div className="titulo">
         Sugestões para você
         <div>Ver tudo</div>
       </div>
@@ -11,3 +11,5 @@ export default function Suggestions() {
     </div>
   )
 }
+
+export default Suggestions
