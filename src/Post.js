@@ -2,8 +2,8 @@ import { useState } from "react"
 
 const Post = ({postItem}) => {
 
-  const [postState,setPostState] = useState(postItem);
-  const {userPost,contentImg,userLike,countLikes,liked = false,saved = false} = postState
+  const [postState,setPostState] = useState({...postItem, liked: false, saved: false});
+  const {userPost,contentImg,userLike,countLikes,liked,saved} = postState
   
   const addLike = () => {
     const sumLike = liked? -1: 1
@@ -18,7 +18,7 @@ const Post = ({postItem}) => {
       <div className="post">
         <div className="topo">
           <div className="usuario">
-            <img src={userPost.src} alt={userPost.alt}/>
+            <img {...userPost}/>
             {userPost.alt}
           </div>
           <div className="acoes">
@@ -27,7 +27,7 @@ const Post = ({postItem}) => {
         </div>
 
         <div className="conteudo">
-          <img src={contentImg.src} alt={contentImg.alt} onClick={() => liked? null: addLike()}/>
+          <img {...contentImg} onDoubleClick={() => liked? undefined: addLike()}/>
         </div>
 
         <div className="fundo">
@@ -43,7 +43,7 @@ const Post = ({postItem}) => {
           </div>
 
           <div className="curtidas">
-            <img src={userLike.src} alt={userLike.alt}/>
+            <img {...userLike}/>
             <div className="texto">
               Curtido por <strong>{userLike.alt}</strong> e <strong>outras {Intl.NumberFormat('pt-br').format(countLikes)} pessoas</strong>
             </div>
